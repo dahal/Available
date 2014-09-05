@@ -38,3 +38,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'whois' # To search for domain's whois info
+gem 'wordnik' # To get the dictionary words starting with, max lenth ect.
