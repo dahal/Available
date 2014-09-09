@@ -4,7 +4,7 @@ List of Available new TLD, gTLD dictionary word domain names.
 
 #### User Stories
 
-- [ ] As a user, I want to be able to select a letter and get the list of available domain starging with that letter.
+- [ ] As a user, I want to be able to select a letter and get the list of available domain starting with that letter.
 
 - [ ] As a user, I want to be able to select the number of letters from drop down box and get the list of domain names.
 
