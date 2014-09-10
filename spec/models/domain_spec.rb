@@ -1,5 +1,9 @@
 require 'rails_helper'
-
-RSpec.describe Domain, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Domain do
+  context "#create" do
+    let(:awesome_domain) {FactoryGirl.build(:domain)}
+     it "should create a new domain" do
+        expect(subject).to  
+     end
+  end
 end
