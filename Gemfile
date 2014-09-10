@@ -26,6 +26,13 @@ gem 'spring',        group: :development
 
 gem 'mongo_mapper'
 gem 'bson_ext'
+
+	
+group :development, :test do 
+	gem 'rspec-rails', '~> 3.0.0'
+	gem 'capybara'
+	gem 'debugger'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -34,7 +41,4 @@ gem 'bson_ext'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
