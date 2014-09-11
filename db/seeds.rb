@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+three_letter_domains = []
+four_letter_domains = []
+
+File.foreach('./db/tlds.csv') do |tld|
+  File.foreach('./db/three_letter_words.csv')  do |word|
+    three_letter_domains << (word.chomp + tld.chomp).strip
+  end
+end
+
+
+File.foreach('./db/tlds.csv') do |tld|
+  File.foreach('./db/four_letter_words.csv')  do |word|
+    four_letter_domains << (word.chomp + tld.chomp).strip
+  end
+end
+
+three_letter_domains.each do |domain|
+  Domain.create(name: domain)
+end
+
+four_letter_domains.each do |domain|
+  Domain.create(name: domain)
+end
