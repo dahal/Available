@@ -15,7 +15,7 @@ File.foreach('./db/tlds.csv') do |tld|
   end
 end
 
-three_letter_domains[0..100].each do |domain|
+three_letter_domains.sample(100).each do |domain|
   begin
     if Whois.whois(domain).available?
       Domain.create(name: domain)
@@ -28,7 +28,7 @@ three_letter_domains[0..100].each do |domain|
   end
 end
 
-four_letter_domains[0..100].each do |domain|
+four_letter_domains.sample(100).each do |domain|
   begin
     if Whois.whois(domain).available?
       Domain.create(name: domain)
