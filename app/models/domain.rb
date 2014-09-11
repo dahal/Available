@@ -5,10 +5,10 @@ class Domain
 	private
 	def check_availability
 		name = self.name
-		Whois.whois(name).available?
-	end
-
-  
+		begin
+			Whois.whois(name).available? == true ? true : false
+		rescue
+			false
+		end
+	end  
 end
-
-

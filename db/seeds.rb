@@ -17,8 +17,10 @@ end
 
 three_letter_domains.each do |domain|
   Domain.create(name: domain)
+  puts domain
 end
 
 four_letter_domains.each do |domain|
   Domain.create(name: domain)
+  puts domain
 end
