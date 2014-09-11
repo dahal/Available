@@ -15,10 +15,28 @@ File.foreach('./db/tlds.csv') do |tld|
   end
 end
 
-three_letter_domains.each do |domain|
-  Domain.create(name: domain)
+three_letter_domains[0..100].each do |domain|
+  begin
+    if Whois.whois(domain).available?
+      Domain.create(name: domain)
+      puts domain
+    end
+  rescue StandardError => e
+    p 'cannot save'
+  rescue Whois::Error => e
+    p 'cannot save'
+  end
 end
 
-four_letter_domains.each do |domain|
-  Domain.create(name: domain)
+four_letter_domains[0..100].each do |domain|
+  begin
+    if Whois.whois(domain).available?
+      Domain.create(name: domain)
+      puts domain
+    end
+  rescue StandardError => e
+    p 'cannot save'
+  rescue Whois::Error => e
+    p 'cannot save'
+  end
 end
