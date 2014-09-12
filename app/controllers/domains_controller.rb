@@ -1,6 +1,10 @@
 class DomainsController < ApplicationController
 
   def index
+    render layout: true  
+  end
+
+  def all_domains
     @domains = Domain.all.first(100)
     render json: @domains.to_json
   end

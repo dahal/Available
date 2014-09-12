@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
    root 'domains#index'
+   get 'domains/all_domains'
    get 'domains/three_letter_domains'
    get 'domains/four_letter_domains'
   # The priority is based upon order of creation: first created -> highest priority.
