@@ -28,6 +28,8 @@ gem 'whois'
 
 gem 'mongo_mapper'
 gem 'bson_ext'
+
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 	
 group :development, :test do 
 	gem 'rspec-rails', '~> 3.0.0'
