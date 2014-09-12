@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :domain do
-    name Faker::Internet.domain_name
+    name ("a".."z").to_a.sample(3).join()+'.academy'
   end
 end

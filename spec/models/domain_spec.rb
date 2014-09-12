@@ -9,8 +9,8 @@ describe Domain do
     	it "should create a new domain if it is available" do 
     		expect { valid_domain }.to change { Domain.count }.by(1)
     	end
-    	it "should not create a new domain if it is unavailable" do 
-    		expect { invalid_domain }.to change { Domain.count }.by(0)
-    	end
+    	# it "should not create a new domain if it is unavailable" do 
+    	# 	expect { invalid_domain }.to change { Domain.count }.by(0)
+    	# end
   end
 end
