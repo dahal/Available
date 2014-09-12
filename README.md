@@ -1,6 +1,6 @@
 ### Available
 List of Available new TLD, gTLD dictionary word domain names.
-
+[![Build Status](https://drone.io/github.com/dahal/Available/status.png)](https://drone.io/github.com/dahal/Available/latest)
 
 #### User Stories
 
