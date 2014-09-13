@@ -1,3 +1,11 @@
 // Place all the styles related to the Domains controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ul li {
+	display: inline;
+	padding: 5px;
+}
+.letters {
+	font-size: 24px;
+}

@@ -1,15 +1,10 @@
 /** @jsx React.DOM */
 
-
-var data = [
-{name: 'my.org'},
-{name: 'poop.com'},
-{name: 'schteev.com'},
-{name: 'mike.com'}
-]
-
 var DomainRiver = React.createClass({
-	loadDomainsFromServer: function() {
+	getInitialState: function() {
+		return { data: [] };
+	},
+	componentDidMount: function() {
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
@@ -20,13 +15,6 @@ var DomainRiver = React.createClass({
 				console.log(this.props.url, status, err.toString());
 			}.bind(this)
 		});
-	},
-	getInitialState: function() {
-		return { data: [] };
-	},
-	componentDidMount: function() {
-		this.loadDomainsFromServer();
-		setInterval(this.loadDomainsFromServer, this.props.pollInterval);
 	},
 	render: function() {
 		return (
@@ -66,10 +54,12 @@ var Domain = React.createClass({
 
 var renderRiver = function() {
 	React.renderComponent(
-		<DomainRiver url='domains/all_domains' pollInterval={2000} />,
+		<DomainRiver url='domains/all_domains' />,
 		document.getElementById('container')
 		);
 }
+
+
 $(document).ready(function(){
 	renderRiver();
 })
