@@ -9,10 +9,26 @@ var data = [
 ]
 
 var DomainRiver = React.createClass({
+	getInitialState: function() {
+		return { data: [] };
+	},
+	componentDidMount: function() {
+		$.ajax({
+			url: this.props.url,
+			dataType: 'json',
+			success: function(data) {
+				this.setState({ data: data });
+			}.bind(this),
+			error: function(xhr, status, err){
+				console.log(this.props.url, status, err.toString());
+			}.bind(this)
+		});
+	},
 	render: function() {
 		return (
 			<div className='domainRiver'>
-			<DomainList data={this.props.data} />
+			<h1>Available Domains</h1>
+			<DomainList data={this.state.data} />
 			</div>
 			)
 	}
@@ -46,7 +62,7 @@ var Domain = React.createClass({
 
 var renderRiver = function() {
 	React.renderComponent(
-		<DomainRiver data={data} />,
+		<DomainRiver url='domains/all_domains' />,
 		document.getElementById('container')
 		);
 }
