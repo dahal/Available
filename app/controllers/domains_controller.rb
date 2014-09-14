@@ -19,7 +19,9 @@ class DomainsController < ApplicationController
     render json: @domains.to_json
   end
 
-  def starts_with_letter
+  def letter
+    p "*" * 30
+    p params
     @domains = Domain.all.select{|domain| domain.name.split('').first == params[:letter]}
     render json: @domains.to_json
   end

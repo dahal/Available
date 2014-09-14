@@ -3,6 +3,7 @@ Rails.application.routes.draw do
    get 'domains/all_domains'
    get 'domains/three_letter_domains'
    get 'domains/four_letter_domains'
+   post 'domains/letter', to: 'domains#letter'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

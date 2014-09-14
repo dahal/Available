@@ -1,6 +1,41 @@
 /** @jsx React.DOM */
 
+var LetterSelection = React.createClass({
+	handleClick: function(e){
+		e.preventDefault();
+		var letter = e.target.innerHTML;
+		this.props.onLetterClick(letter)
+	},
+	render: function() {
+		var arr = []
+		for (var i = 'a'.charCodeAt(0), end='z'.charCodeAt(0); i <= end; ++i){
+			arr.push(String.fromCharCode(i));
+		}
+		var nodes = arr.map(function(n){
+			return (
+				<li><a href=''>{n}</a></li>
+				);				
+		})
+		return(
+			<ul onClick={this.handleClick}>
+			{nodes}
+			</ul>
+			);
+	}
+})
+
 var DomainRiver = React.createClass({
+	handleDomainSearch: function(letter){
+		$.ajax({
+			url: 'domains/letter',
+			dataType: 'json',
+			type: 'POST',
+			data: {letter: letter},
+			success: function(data){
+				this.setState({data: data})
+			}.bind(this)
+		})
+	},
 	getInitialState: function() {
 		return { data: [] };
 	},
@@ -20,6 +55,7 @@ var DomainRiver = React.createClass({
 		return (
 			<div className='domainRiver'>
 			<h1>Available Domains</h1>
+			<LetterSelection onLetterClick={this.handleDomainSearch} />
 			<DomainList data={this.state.data} />
 			</div>
 			)
@@ -54,12 +90,12 @@ var Domain = React.createClass({
 
 var renderRiver = function() {
 	React.renderComponent(
-		<DomainRiver url='domains/all_domains' />,
+		<DomainRiver url='domains/all_domains' pollInterval={2000}/>,
 		document.getElementById('container')
 		);
 }
 
 
 $(document).ready(function(){
-	renderRiver();
+	renderRiver();	
 })
