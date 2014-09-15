@@ -2,10 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+h1 {
+	text-align: center;
+}
+ul {
+	margin-left: 320px;
+}
 ul li {
 	display: inline;
-	padding: 5px;
+	padding: 8px;
 }
-.letters {
+.letter {
 	font-size: 24px;
 }

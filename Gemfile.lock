@@ -113,6 +113,9 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.5)
       sprockets-rails (~> 2.0)
+    rails-api (0.2.1)
+      actionpack (>= 3.2.11)
+      railties (>= 3.2.11)
     railties (4.1.5)
       actionpack (= 4.1.5)
       activesupport (= 4.1.5)
@@ -190,6 +193,7 @@ DEPENDENCIES
   mongo_mapper
   pry
   rails (= 4.1.5)
+  rails-api
   react-rails (~> 1.0.0.pre)!
   rspec-rails (~> 3.0.0)
   sass-rails (~> 4.0.3)
