@@ -36,4 +36,22 @@ describe DomainsController do
       expect(domain_length).to eq(4) 
     end
   end
+
+  context '#starts_with_letter' do
+    tlds = %w(.academy .actor  .agency .archi .associates .audio .bar)
+    words = %w(adsfa auhre addds fyjf rqewr ertye uytk)
+    let!(:awesome_domains) {tlds.map{|t| words.map{|w| Domain.create(name: w+t)}}}
+    it "Should return the domains starting with the letter provided" do
+      get 'domains/starts_with_letter/a'
+    end
+  end
+
+  context '#ends_with_tld' do
+    tlds = %w(.academy .actor  .agency .archi .associates .audio .bar)
+    words = %w(ffdasfa fadsfa ads fyjf rqewr ertye uytk)
+    let!(:awesome_domains) {tlds.map{|t| words.map{|w| Domain.create(name: w+t)}}}
+    it "Should return domains starting ending on given tld" do
+      get 'domains/ends_with_tld/academy'  
+    end
+  end
 end
