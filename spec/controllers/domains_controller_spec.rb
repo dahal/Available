@@ -36,4 +36,26 @@ describe DomainsController do
       expect(domain_length).to eq(4) 
     end
   end
+
+  context '#starts_with_letter' do
+    let!(:awesome_domain) {Domain.create(name: 'asdfjkl.academy')}
+    it "Should return the domains starting with the letter provided" do
+      starting_letter = awesome_domain.name.split("").first
+      get :starts_with_letter, letter: starting_letter
+      expect(response.status).to eq(200)
+      expect(starting_letter).to eq('a')
+    end
+  end
+
+  context '#ends_with_tld' do
+    words = %w(fadf lkllk fads tfdgs bsfd)
+    let!(:awesome_domains) { words.map{|w| Domain.create(name: w+ '.agency')}}
+    it "Should return domains starting ending on given tld" do
+      ending_tld = awesome_domains.first.name.split('.').last
+      get :ends_with_tld, tld: ending_tld
+      expect(response.status).to be(200)
+      expect(ending_tld).to eq('agency')
+      
+    end
+  end
 end
