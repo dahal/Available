@@ -1,5 +1,5 @@
-Available.Collections.Domains = Backbone.Collection.extend({
+App.Collections.Domains = Backbone.Collection.extend({
 
-  model: Available.Models.Domain
+  model: App.Models.Domain
 
 });

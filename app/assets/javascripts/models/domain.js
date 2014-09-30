@@ -1,3 +1,3 @@
-Available.Models.Domain = Backbone.Model.extend({
+App.Models.Domain = Backbone.Model.extend({
 
 });

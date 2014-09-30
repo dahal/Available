@@ -1,4 +1,4 @@
-Available.Views.DomainsIndex = Backbone.View.extend({
+App.Views.DomainsIndex = Backbone.View.extend({
 
   template: JST['domains/index']
 

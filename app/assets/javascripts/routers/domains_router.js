@@ -1,3 +1,3 @@
-Available.Routers.Domains = Backbone.Router.extend({
+App.Routers.Domains = Backbone.Router.extend({
 
 });
