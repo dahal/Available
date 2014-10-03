@@ -28,6 +28,7 @@ gem 'whois'
 
 gem 'mongo_mapper'
 gem 'bson_ext'
+gem "backbone-on-rails"
 	
 group :development, :test do 
 	gem 'rspec-rails', '~> 3.0.0'
